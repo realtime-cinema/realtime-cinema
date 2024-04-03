@@ -1,9 +1,9 @@
 {
-  "name": "template-nextjs-tailwindcss",
+  "name": "realtime-cinema",
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "description": "TypeScript template with Next.js, TailwindCSS",
+  "description": "Realtime Booking Film - Cinema Website",
   "author": "Đậu Khoa <khoakomlem@gmail.com>",
   "repository": "https://github.com/khoakomlem/template-nextjs-tailwindcss",
   "main": "index.js",

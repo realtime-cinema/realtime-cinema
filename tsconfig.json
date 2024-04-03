@@ -12,14 +12,14 @@
     "allowJs": false /* Allow javascript files to be compiled. */,
     "checkJs": false /* Report errors in .js files. */,
     "jsx": "preserve" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
-    "declaration": true /* Generates corresponding '.d.ts' file. */,
-    "declarationMap": true /* Generates a sourcemap for each corresponding '.d.ts' file. */,
-    "sourceMap": true /* Generates corresponding '.map' file. */,
+    "declaration": false /* Generates corresponding '.d.ts' file. */,
+    "declarationMap": false /* Generates a sourcemap for each corresponding '.d.ts' file. */,
+    "sourceMap": false /* Generates corresponding '.map' file. */,
     "outDir": "./dist" /* Redirect output structure to the directory. */,
-    "rootDir": "src" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
-    "incremental": true /* Enable incremental compilation */,
-    "composite": true /* Enable project compilation */,
-    "tsBuildInfoFile": "./dist/.tsbuildinfo" /* Specify file to store incremental compilation information */,
+    "rootDir": "." /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
+    // "incremental": false /* Enable incremental compilation */,
+    "composite": false /* Enable project compilation */,
+    // "tsBuildInfoFile": "./dist/.tsbuildinfo" /* Specify file to store incremental compilation information */,
     "removeComments": true /* Do not emit comments to output. */,
     "noEmit": true /* Do not emit outputs. */,
     "importHelpers": false /* Import emit helpers from 'tslib'. */,
@@ -43,8 +43,12 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@public/*": ["./public/*"],
-      "@/*": ["./src/*"]
+      "@public/*": [
+        "./public/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
@@ -70,9 +74,13 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "incremental": true
   },
-  "exclude": ["node_modules", "dist"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "include": [
     "./*.js",
     "src/**/*.ts",

@@ -105,11 +105,14 @@ export function Bookingtime() {
             <div className='border-[#222]bg-transparent relative flex flex-col  border-y-[1.6px] bg-origin-padding p-5 text-center sm:flex-row sm:flex-wrap'>
               {MovieFormats.map((format, index) => (
                 <div
-                  key={index}
+                  key={format}
                   className={`mr-[3px] inline-block cursor-pointer rounded-[5px] border-[1.6px] border-[#222] px-[10px] text-center text-[12px] leading-[29px] ${
                     format === selectedTheater ? 'bg-black text-white' : ''
                   }`}
                   onClick={() => {
+                    handleTheaterClick(index);
+                  }}
+                  onKeyDown={() => {
                     handleTheaterClick(index);
                   }}
                 >

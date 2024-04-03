@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { Chair } from './Chair';
 
 export function Test() {
@@ -15,7 +17,7 @@ export function Test() {
   };
 
   return (
-    <div className='Main'>
+    <div className='Main max-w-[80%] mx-auto'>
       <div className='Booking'>Booking Online</div>
       <div className='top_content'>
         <p>
@@ -25,9 +27,16 @@ export function Test() {
       </div>
       <div className='Nguoi_ghe'>Người / Ghế</div>
       <div className='Screen'>
-        <img src='https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-screen.png' />
+        <Image
+          src='https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-screen.png'
+          width={1000}
+          height={500}
+          alt='Background'
+        />
       </div>
-      <div className='Chairs'>{Ghe()}</div>
+      <div className='Chairs'>
+        <Ghe />
+      </div>
       <div className='Icons-notice'>
         <div className='Icons'>
           <div className='icon_checked'>
