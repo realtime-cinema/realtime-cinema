@@ -1,2 +1,1 @@
-# realtime-cinema
-realtime-cinema
+# template-nextjs-tailwindcss
