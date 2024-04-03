@@ -1,6 +1,6 @@
-import form from "@tailwindcss/forms"
-// Import tailwindScrollbar from "tailwind-scrollbar";
-import typography from "@tailwindcss/typography"
+import form from "@tailwindcss/forms";
+import tailwindScrollbar from "tailwind-scrollbar";
+import typography from "@tailwindcss/typography";
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -30,7 +30,5 @@ export default {
       },
     },
   },
-  // Plugins: [
-  //   // TailwindScrollbar({ nocompatible: true })
-  //   form, typography],
-}
+  plugins: [tailwindScrollbar({ nocompatible: true }), form, typography],
+};

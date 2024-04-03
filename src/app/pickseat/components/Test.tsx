@@ -26,12 +26,13 @@ export function Test() {
         </p>
       </div>
       <div className='Nguoi_ghe'>Người / Ghế</div>
-      <div className='Screen'>
+      <div className='Screen w-full'>
         <Image
           src='https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-screen.png'
           width={1000}
           height={500}
           alt='Background'
+          className='mx-auto'
         />
       </div>
       <div className='Chairs'>

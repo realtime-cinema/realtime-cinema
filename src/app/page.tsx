@@ -1,12 +1,8 @@
 import Link from 'next/link';
 
-import { Footer } from '@/app/components/footer';
-import { Header } from '@/app/components/header';
-
 export default function Home() {
   return (
-    <div className='flex flex-col min-h-[100vh]'>
-      <Header />
+    <div>
       <h1>TrANG NAY CHUA LAM</h1>
       <div className='flex flex-col grow'>
         <Link href='/film'>/film</Link>
@@ -14,7 +10,6 @@ export default function Home() {
         <Link href='/pickseat'>/pickseat</Link>
         <Link href='/book'>/book</Link>
       </div>
-      <Footer />
     </div>
   );
 }

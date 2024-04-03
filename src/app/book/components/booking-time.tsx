@@ -6,6 +6,7 @@ import { CitySelection } from './city-selection';
 import { GetDay } from './get-day';
 
 export function Bookingtime() {
+  const [selectedDate, setSelectedDate] = useState<number | undefined>(0); // State để lưu trữ ngày được chọn
   const [selectedCity, setSelectedCity] = useState('Hồ Chí Minh');
   const [selectedTheater, setSelectedTheater] = useState<string | undefined>(
     '2D Vietnam Sub'
@@ -76,7 +77,7 @@ export function Bookingtime() {
         className='box-border h-[36rem]  w-screen overflow-auto overflow-x-hidden bg-[#fdfcf0] bg-auto bg-scroll bg-repeat bg-origin-padding p-[0.3125rem] text-sm'
       >
         {/* getday ngay thang nam */}
-        <GetDay />
+        <GetDay setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
 
         <div className='w-[1310.2px] px-5 '>
           <div
