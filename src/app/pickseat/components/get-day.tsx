@@ -15,6 +15,7 @@ export function GetDay(): JSX.Element {
         <div className='box-border flex w-[82rem] border-y-[0.1rem] border-solid bg-transparent p-5 '>
           {[...Array(15)].map((_, columnIndex) => (
             <div
+              // eslint-disable-next-line react/no-array-index-key
               key={columnIndex}
               style={{ width: `${90 / 15}%`, marginRight: '2px' }}
             >
@@ -24,6 +25,7 @@ export function GetDay(): JSX.Element {
 
                 return (
                   <div
+                    // eslint-disable-next-line react/no-array-index-key
                     key={rowIndex}
                     style={{ marginBottom: '2px' }}
                     onClick={() => {
