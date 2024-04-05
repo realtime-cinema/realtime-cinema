@@ -5,24 +5,21 @@ export const getCurrentday = () => {
   const daysInMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
-    0,
+    0
   ).getDate();
 
   return { day, daysInMonth, month };
 };
 
-export const getDayAndWeekday = (index) => {
-  if (typeof index !== "number") {
-    throw new Error("index must be a number");
-  }
-
+export const getDateData = (jumpDay: number) => {
   const currentDate = new Date();
-  currentDate.setDate(currentDate.getDate() + index);
+  currentDate.setDate(currentDate.getDate() + jumpDay);
 
   return {
     day: currentDate.getDate(),
-    weekday: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+    weekday: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][
       currentDate.getDay()
     ],
+    month: currentDate.getMonth(),
   };
 };

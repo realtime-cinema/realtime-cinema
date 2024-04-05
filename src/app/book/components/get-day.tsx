@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 
-import { getCurrentday, getDayAndWeekday } from './dateUtils';
+import { getCurrentday, getDateData } from './dateUtils';
 
 export function GetDay({
   selectedDate,
@@ -11,7 +12,7 @@ export function GetDay({
     React.SetStateAction<number | undefined>
   >;
 }): JSX.Element {
-  let { day, daysInMonth, month } = getCurrentday();
+  const { day, daysInMonth, month } = getCurrentday();
 
   // Function to generate unique IDs
   const generateId = (prefix: string): string =>
@@ -22,27 +23,14 @@ export function GetDay({
       <div className='mr-[0.625rem] box-border text-sm leading-[1.125rem] shadow-white '>
         <div className='box-border flex w-[82rem] border-y-[0.1rem] border-solid bg-transparent p-5 gap-x-2 gap-y-2 flex-wrap'>
           {[...Array(daysInMonth)].map((_, columnIndex) => {
-            let { day: currentDay, weekday } = getDayAndWeekday(columnIndex);
-            const uniqueId = generateId('date'); // Generate unique ID
-
-            if (day + columnIndex > daysInMonth) {
-              // If current day exceeds the days in the month
-              if (currentDay <= daysInMonth) {
-                currentDay = day + columnIndex - daysInMonth; // Set current day for the new month
-                month++; // Move to the next month
-              }
-
-              if (month > 11) {
-                month = 0; // Reset
-              }
-            }
-
+            const { day, weekday, month } = getDateData(columnIndex);
+            const id = `${weekday}${day}${month}`;
             return (
-              <div key={uniqueId} className=''>
+              <div key={id} className=''>
                 <Date
-                  id={uniqueId} // Pass unique ID as prop
-                  day={currentDay}
-                  month={month} // Pass updated month as prop
+                  id={id}
+                  day={day}
+                  month={month}
                   weekday={weekday}
                   isSelected={selectedDate === columnIndex}
                   onSelect={() => {
