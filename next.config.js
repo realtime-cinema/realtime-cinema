@@ -14,9 +14,6 @@ const nextConfig = {
     minimumCacheTTL: 60,
     // Unoptimized: true,
   },
-  experimental: {
-    forceSwcTransforms: true,
-  },
-}
+};
 
-export default nextConfig
+export default nextConfig;
