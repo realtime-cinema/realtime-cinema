@@ -2,8 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Comment } from './Comment';
+import { type CommentData } from './ComponentData';
 
-export default function UserComment({ comments }) {
+type Props = {
+  readonly comments: CommentData[]; // Specify the type of the 'comments' prop
+};
+
+export default function UserComment({ comments }: Props) {
   return (
     <div>
       {/* users comment  */}
@@ -34,8 +39,8 @@ export default function UserComment({ comments }) {
           </div>
 
           {/* Render commments */}
-          {comments.map((comment, index) => (
-            <Comment key={index} comment={comment} />
+          {comments.map((comment) => (
+            <Comment key={comment.username} comment={comment} />
           ))}
 
           {/* <Comment comments={comments}/> */}

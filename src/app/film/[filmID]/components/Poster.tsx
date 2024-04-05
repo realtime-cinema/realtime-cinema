@@ -1,8 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export function Poster({ poster }) {
-  const posterfilm = require(`../assets/${poster.posterFilm}`);
+import { type PosterData } from './ComponentData';
+
+type Props = {
+  readonly poster: PosterData;
+};
+
+export function Poster({ poster }: Props) {
+  // const posterfilm = require(`../assets/${poster.posterFilm}`);
   return (
     <div className='w-[100%] h-[100%] content-center'>
       {/* './poster.jpg' and desciption  */}
@@ -17,7 +23,7 @@ export function Poster({ poster }) {
               <div className='w-1/3'>
                 <Image
                   alt='MAI'
-                  src={posterfilm}
+                  src='/poster.jpg'
                   width={600}
                   height={550}
                   decoding='async'
