@@ -2,7 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 /* eslint-disable react/no-unescaped-entities */
-export function Poster() {
+export function Poster({poster}) {
+  const posterfilm= require(`../assets/${poster.posterFilm}`)
   return (
     <div className='w-[100%] h-[100%] content-center'>
       {/* './poster.jpg' and desciption  */}
@@ -17,7 +18,7 @@ export function Poster() {
               <div className='w-1/3'>
                 <Image
                   alt='MAI'
-                  src='/poster.jpg'
+                  src={posterfilm}
                   width={600}
                   height={550}
                   decoding='async'
@@ -30,35 +31,35 @@ export function Poster() {
               <div className='relative  flex-shrink w-2/3 bg-gray-600 rounded-lg pl-1 '>
                 {/* 18+ */}
                 <div className=' inline-flex h-5  items-center justify-center rounded-sm bg-opacity-80 px-1  text-xs font-semibold text-white bg-red-600 text-opacity-95 cinema-rate-red backdrop-blur-3xl '>
-                  18+
+                  {poster.age}+
                 </div>
                 {/* mai */}
                 <h1 className=' mt-2 text-2xl font-bold text-white md:text-4xl backdrop-blur-xl'>
-                  MAI
+                  {poster.name}
                 </h1>
                 {/* mai 2024 151p */}
                 <ul className=' mt-1 flex flex-wrap items-center text-sm text-white text-opacity-60 md:text-base'>
-                  <li className=''>MAI</li>
+                  <li className=''>{poster.name}</li>
                   <li className=' mx-2 text-base font-normal'>·</li>
-                  <li className=''>2024</li>
+                  <li className=''>{poster.year}</li>
                   <li className=' mx-2 text-base font-normal'>·</li>
-                  <li className=''>151 phút</li>
+                  <li className=''>{poster.time} phút</li>
                 </ul>
                 {/* './star.svg' */}
                 <div className='flex flex-nowrap items-center space-x-2 overflow-x-auto overflow-y-hidden pb-2 pt-2 text-sm sm:pt-3 md:space-x-3 md:text-base'>
                   <div className='mr-2 flex shrink-0 flex-nowrap items-center space-x-0.5 pb-1'>
                     <Image src='/star.svg' alt='' height={28} width={28} />
                     <div className='flex items-center space-x-1 text-xl'>
-                      <div className='text-2xl font-bold text-white'>9.1</div>
+                      <div className='text-2xl font-bold text-white'>{poster.rating}</div>
                       <div className='text-[10px] text-gray-400 self-end -mb-[3px]'>
-                        34.2K đánh giá
+                        {poster.totalRatings} đánh giá
                       </div>
                     </div>
                   </div>
                 </div>
                 {/* cap */}
                 <p className='mb-3 italic text-white text-opacity-60'>
-                  Quá khứ chưa ngủ yên, ngày mai liệu sẽ đến?
+                  {poster.caption}
                 </p>
                 {/* nd */}
                 <h3 className='font-bold text-white text-opacity-90 sm:text-base'>
@@ -66,17 +67,7 @@ export function Poster() {
                 </h3>
                 {/* nd dai */}
                 <div className='mt-1 text-sm leading-relaxed text-white text-opacity-70'>
-                  "Mai" xoay quanh cuộc đời của một người phụ nữ đẹp tên Mai (do
-                  Phương Anh Đào thủ vai) có số phận rất đặc biệt. Bởi làm nghề
-                  mát xa, Mai thường phải đối mặt với ánh nhìn soi mói, phán xét
-                  từ những người xung quanh. Và rồi Mai gặp Dương (Tuấn Trần) -
-                  chàng trai đào hoa lãng tử. Những tưởng bản thân không còn
-                  thiết tha yêu đương và mưu cầu hạnh phúc cho riêng mình thì
-                  khao khát được sống một cuộc đời mới trong Mai trỗi dậy khi
-                  Dương tấn công cô không khoan nhượng. Họ cho mình những khoảnh
-                  khắc tự do, say đắm và tràn đầy tiếng cười. Liệu cặp đôi ấy có
-                  nắm giữ được niềm hạnh phúc đó dài lâu khi miệng đời lắm khi
-                  cay nghiệt, bất công?
+                  {poster.description}
                 </div>
                 {/* info */}
                 <div className='mt-3 text-sm text-gray-700'>
@@ -87,7 +78,7 @@ export function Poster() {
                         Ngày chiếu
                       </div>
                       <div className='mt-1 font-bold text-white text-opacity-90'>
-                        10/02/2024
+                        {poster.releaseDate}
                       </div>
                     </div>
                     {/* type */}
@@ -96,7 +87,7 @@ export function Poster() {
                         Thể loại
                       </div>
                       <div className='mt-1 font-bold text-white text-opacity-90'>
-                        Lãng mạn, Tình cảm, Tâm lý
+                        {poster.filmGenres}
                       </div>
                     </div>
                     {/* nation */}
@@ -105,7 +96,7 @@ export function Poster() {
                         Quốc gia
                       </div>
                       <div className='mt-1 font-bold text-white text-opacity-90'>
-                        Việt Nam
+                        {poster.nation}
                       </div>
                     </div>
                   </div>
@@ -117,7 +108,7 @@ export function Poster() {
                   <Link
                     target='_blank'
                     className='tracking-click-view-review tracking-focus flex items-center space-x-1.5 py-2 text-sm hover:underline'
-                    href='https://www.youtube.com/watch?v=xVWeRnStdSA'
+                    href={poster.trailerLink}
                   >
                     <div className='h-6 w-6 rounded-full border-2 border-pink-600 text-white/80'>
                       <svg
@@ -141,7 +132,7 @@ export function Poster() {
                   <Link
                     target='_blank'
                     className='tracking-click-view-review tracking-focus flex items-center space-x-1.5 py-2 text-sm hover:underline'
-                    href='https://www.youtube.com/watch?v=xVWeRnStdSA'
+                    href={poster.reviewLink}
                   >
                     <div className='flex h-6 w-6 items-center justify-center rounded-full border-2 border-yellow-300'>
                       <svg

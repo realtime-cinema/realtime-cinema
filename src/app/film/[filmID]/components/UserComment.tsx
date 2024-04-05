@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Comment } from './Comment';
 
-export default function UserComment({Comment}) {
+export default function UserComment({comments}) {
   return (
     <div>
       {/* users comment  */}
@@ -33,7 +33,13 @@ export default function UserComment({Comment}) {
             </div>
           </div>
 
-          <Comment {Comment}/>
+          {/* Render commments */}
+          {comments.map((comment, index)=>(
+            <Comment key={index} comment={comment}/>
+          ))}
+
+          {/* <Comment comments={comments}/> */}
+
         </div>
       </div>
     </div>
