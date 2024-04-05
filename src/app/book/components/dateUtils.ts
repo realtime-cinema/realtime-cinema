@@ -12,7 +12,7 @@ export const getCurrentday = () => {
 };
 
 export const getDateData = (jumpDay: number) => {
-  const currentDate = new Date();
+  const currentDate = new Date(Date.now());
   currentDate.setDate(currentDate.getDate() + jumpDay);
 
   return {
