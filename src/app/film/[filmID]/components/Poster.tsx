@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-/* eslint-disable react/no-unescaped-entities */
-export function Poster({poster}) {
-  const posterfilm= require(`../assets/${poster.posterFilm}`)
+export function Poster({ poster }) {
+  const posterfilm = require(`../assets/${poster.posterFilm}`);
   return (
     <div className='w-[100%] h-[100%] content-center'>
       {/* './poster.jpg' and desciption  */}
@@ -50,7 +49,9 @@ export function Poster({poster}) {
                   <div className='mr-2 flex shrink-0 flex-nowrap items-center space-x-0.5 pb-1'>
                     <Image src='/star.svg' alt='' height={28} width={28} />
                     <div className='flex items-center space-x-1 text-xl'>
-                      <div className='text-2xl font-bold text-white'>{poster.rating}</div>
+                      <div className='text-2xl font-bold text-white'>
+                        {poster.rating}
+                      </div>
                       <div className='text-[10px] text-gray-400 self-end -mb-[3px]'>
                         {poster.totalRatings} đánh giá
                       </div>
@@ -153,8 +154,6 @@ export function Poster({poster}) {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }

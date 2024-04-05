@@ -1,10 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+
 import LikeButton from '../assets/like.svg';
 import accumulation from '../assets/pink-accumulation.svg';
 
 export function Comment({ comment }) {
-  const avt = require(`../assets/avt${comment.avt}.jpg`);  
+  const avt = require(`../assets/avt${comment.avt}.jpg`);
   return (
     <div>
       {/* comment 1 */}
@@ -77,7 +78,14 @@ export function Comment({ comment }) {
           {/* useful */}
           <div className='mt-4 flex items-center space-x-5 text-sm'>
             <div className='flex items-center space-x-1'>
-              <Image src={LikeButton} alt='' height={20} width={20} className='cursor-pointer' onClick={comment.likes+1}/>
+              <Image
+                src={LikeButton}
+                alt=''
+                height={20}
+                width={20}
+                className='cursor-pointer'
+                onClick={comment.likes + 1}
+              />
               <div className=' text-neutral-700 font-bold'>
                 {comment.likes} thấy hữu ích
               </div>
@@ -88,4 +96,3 @@ export function Comment({ comment }) {
     </div>
   );
 }
-
