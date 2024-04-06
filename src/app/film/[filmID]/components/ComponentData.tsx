@@ -2,7 +2,7 @@ import exp from 'constants';
 
 export type CommentData = {
   username: string;
-  avt: number;
+  avt: string;
   time: string;
   purchaseMethod: string;
   rating: number;
@@ -14,7 +14,7 @@ export type CommentData = {
 export const Comments: CommentData[] = [
   {
     username: 'Nguyen Van A',
-    avt: 1,
+    avt: `/avt1.jpg`,
     time: '5 days ago',
     purchaseMethod: 'Đã mua qua MoMo',
     rating: 7,
@@ -26,7 +26,7 @@ export const Comments: CommentData[] = [
 
   {
     username: 'Tran Thi B',
-    avt: 2,
+    avt: `/avt2.jpg`,
     time: '3 days ago',
     purchaseMethod: 'Đã mua qua ZaloPay',
     rating: 8,
@@ -38,7 +38,7 @@ export const Comments: CommentData[] = [
 
   {
     username: 'Le Van C',
-    avt: 3,
+    avt: `/avt3.jpg`,
     time: '1 week ago',
     purchaseMethod: 'Xem trên Netflix',
     rating: 9,
@@ -50,7 +50,7 @@ export const Comments: CommentData[] = [
 
   {
     username: 'Pham Van D',
-    avt: 4,
+    avt: `/avt4.jpg`,
     time: '2 days ago',
     purchaseMethod: 'Xem trên CGV',
     rating: 9,
