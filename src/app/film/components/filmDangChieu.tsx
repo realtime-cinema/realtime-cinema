@@ -20,23 +20,17 @@ export default function FilmDangChieu() {
         </div>
 
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-white text-center max-w-6xl px-5 md:px-8 lg:px-8'>
-          <div className='mb-5 text-center md:mb-5 mt-[-20px] font-bold'>
+          <div className='mb-5 text-center md:mb-5 mt-[-20px] font-bold text-3xl'>
             Phim đang chiếu
           </div>
 
-          <div className='-mx-5 text-center'>
-            <div className='fresnel-container fresnel-greaterThan-sm fresnel-:R2hom'>
-              <div className='swiper-cinema relative'>
-                <div className='swiper swiper-initialized swiper-horizontal swiper-pointer-events'>
-                  <div className='swiper-wrapper flex'>
-                    <PosterFilm />
-                    <PosterFilm />
-                    <PosterFilm />
-                    <PosterFilm />
-                    <PosterFilm />
-                  </div>
-                </div>
-              </div>
+          <div className='mx-5 text-center'>
+            <div className='swiper-wrapper flex justify-center '>
+              <PosterFilm />
+              <PosterFilm />
+              <PosterFilm />
+              <PosterFilm />
+              <PosterFilm />
             </div>
           </div>
         </div>
