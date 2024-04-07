@@ -1,7 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
 
-function PosterFilm() {
+import { type PosterData } from './ComponentData';
+
+type Props = {
+  readonly posterfilm: PosterData;
+};
+
+function PosterFilm({ posterfilm }: Props) {
+  let backgroundColor = '';
+  if (posterfilm.age < 16) {
+    backgroundColor = 'bg-green-600';
+  } else if (posterfilm.age === 16) {
+    backgroundColor = 'bg-yellow-500';
+  } else {
+    backgroundColor = 'bg-red-600';
+  }
+
   return (
     <div className='mx-8'>
       <div className='h-auto w-[220px] mr-[15px] '>
@@ -36,8 +51,10 @@ function PosterFilm() {
             <a href='fb.com'>
               <div className=' overlay absolute inset-0 z-20 bg-transparent px-2 py-2'>
                 <div className=' flex flex-row flex-nowrap space-x-2'>
-                  <div className='inline-flex h-5  items-center justify-center rounded-sm bg-opacity-80 px-1  text-xs font-semibold text-white bg-yellow-600 text-opacity-95 backdrop-blur-3xl'>
-                    13+
+                  <div
+                    className={`inline-flex h-5  items-center justify-center rounded-sm bg-opacity-80 px-1  text-xs font-semibold text-white  text-opacity-95 backdrop-blur-3xl ${backgroundColor}`}
+                  >
+                    {posterfilm.age}+
                   </div>
                 </div>
               </div>
@@ -45,30 +62,27 @@ function PosterFilm() {
             <div className=' flex bg-gray-900 w-[220px]'>
               <div className='aspect-w-7 aspect-h-10 w-full scale-100 transition-transform duration-300 group-hover:scale-105'>
                 <Image
-                  src='/avt1.jpg'
+                  src={posterfilm.imgPoster}
                   width={250}
                   height={300}
-                  alt='Seishun 18×2: Kimi e to Tsuzuku Michi'
+                  alt={posterfilm.filmName}
                   className='h-[300px] w-[250px] object-cover object-center'
                   loading='lazy'
                 />
               </div>
             </div>
           </div>
-          <div className=' absolute -bottom-2 left-0 z-10 text-4xl font-bold text-white text-opacity-90 drop-shadow md:text-5xl'>
-            1
+          <div className=' absolute -bottom-4 left-0 z-10 text-4xl font-bold text-white text-opacity-90 drop-shadow md:text-5xl'>
+            {posterfilm.id}
           </div>
         </div>
         <div className=' mt-2'>
-          <a
-            className=' group'
-            href='/cinema/seishun-18-2-kimi-e-to-tsuzuku-michi-23791'
-          >
-            <div className=' truncate font-semibold leading-tight sm:text-md text-white group-hover:text-pink-400'>
-              Thanh Xuân 18×2 Thanh Xuân 18×2: Lữ Tr
+          <a className=' group' href={posterfilm.filmLink}>
+            <div className=' truncate font-semibold leading-tight sm:text-md text-white group-hover:text-pink-400 flex justify-start mt-3'>
+              {posterfilm.filmName}
             </div>
             <div className=' mt-1 truncate text-tiny leading-tight text-gray-400 group-hover:text-pink-400 flex justify-start'>
-              Lãng Mạn
+              {posterfilm.filmGenre}
             </div>
           </a>
         </div>
@@ -81,7 +95,8 @@ function PosterFilm() {
             className='mr-1 h-4 w-4 text-yellow-400'
           >
             <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-          </svg> 10.0
+          </svg>{' '}
+          {posterfilm.rating}
         </div>
       </div>
     </div>
