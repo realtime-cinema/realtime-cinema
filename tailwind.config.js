@@ -1,6 +1,8 @@
 import form from "@tailwindcss/forms";
 import tailwindScrollbar from "tailwind-scrollbar";
 import typography from "@tailwindcss/typography";
+import plugin from "tailwindcss/plugin";
+
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -30,5 +32,20 @@ export default {
       },
     },
   },
-  plugins: [tailwindScrollbar({ nocompatible: true }), form, typography],
+  plugins: [
+    tailwindScrollbar({ nocompatible: true }),
+    form,
+    typography,
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".drag-none": {
+          "-webkit-user-drag": "none",
+          "-khtml-user-drag": "none",
+          "-moz-user-drag": "none",
+          "-o-user-drag": "none",
+          "user-drag": "none",
+        },
+      });
+    }),
+  ],
 };
