@@ -1,3 +1,4 @@
+"use client";
 import { posterfilms } from "./components/ComponentData";
 import FilmDangChieu from "./components/filmDangChieu";
 
