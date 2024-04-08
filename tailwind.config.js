@@ -36,7 +36,7 @@ export default {
     tailwindScrollbar({ nocompatible: true }),
     form,
     typography,
-    plugin(function ({ addUtilities }) {
+    plugin(({ addUtilities }) => {
       addUtilities({
         ".drag-none": {
           "-webkit-user-drag": "none",

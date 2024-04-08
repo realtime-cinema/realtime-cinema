@@ -1,13 +1,15 @@
-"use client";
+'use client';
 
-import React, { useMemo, useState } from "react";
-import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import React, { useMemo, useState } from 'react';
+import Image from 'next/image';
 
-import { type PosterData } from "./ComponentData";
-import PosterFilm from "./PosterFilm";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import Slider from 'react-slick';
+
+import { type PosterData } from './ComponentData';
+import PosterFilm from './PosterFilm';
 
 type Props = {
   readonly posterFilms: PosterData[];
@@ -17,12 +19,13 @@ function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <button
+      type='button'
       className={className}
       style={{
         ...style,
-        width: "30px",
+        width: '30px',
       }}
-      onClick={() => onClick()}
+      onClick={onClick}
     />
   );
 }
@@ -31,12 +34,13 @@ function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <button
+      type='button'
       className={className}
       style={{
         ...style,
-        width: "30px",
+        width: '30px',
       }}
-      onClick={() => onClick()}
+      onClick={onClick}
     />
   );
 }
@@ -47,7 +51,7 @@ export default function FilmDangChieu({ posterFilms }: Props) {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 6,
+      slidesToShow: 5,
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
@@ -78,17 +82,17 @@ export default function FilmDangChieu({ posterFilms }: Props) {
         },
       ],
     }),
-    [],
+    []
   );
 
-  const posterFilms2 = posterFilms.map((a) => [a, a]).flat();
+  // const posterFilms2 = posterFilms.map((a) => [a, a]).flat();
 
   return (
     <div className=" bg-[url('/bg.jpg')] h-[500px]">
-      <div className="mb-5 text-center font-bold text-3xl">Phim đang chiếu</div>
-      <div className="w-[80%] m-auto">
-        <Slider {...settings} className="drag-none" draggable={false}>
-          {posterFilms2.map((posterFilm) => (
+      <div className='mb-5 text-center font-bold text-3xl'>Phim đang chiếu</div>
+      <div className='w-[80%] m-auto'>
+        <Slider {...settings} className='drag-none' draggable={false}>
+          {posterFilms.map((posterFilm) => (
             <PosterFilm key={posterFilm.id} posterfilm={posterFilm} />
           ))}
         </Slider>

@@ -1,5 +1,5 @@
-import { posterfilms } from "./components/ComponentData";
-import FilmDangChieu from "./components/filmDangChieu";
+import { posterfilms } from './components/ComponentData';
+import FilmDangChieu from './components/filmDangChieu';
 
 export default function FilmPageList() {
   return (
