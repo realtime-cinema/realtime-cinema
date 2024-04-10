@@ -28,6 +28,9 @@ export default {
       animation: {
         "spin-slow": "spin 3s linear infinite",
       },
+      gridTemplateColumns:{
+        '20': 'repeat(20, minmax(0, 1fr))',
+      }
     },
   },
   plugins: [tailwindScrollbar({ nocompatible: true }), form, typography],
