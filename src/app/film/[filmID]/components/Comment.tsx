@@ -1,10 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
-import LikeButton from '../assets/like.svg';
-import accumulation from '../assets/pink-accumulation.svg';
 
-export function Comment({ comment }) {
-  const avt = require(`../assets/avt${comment.avt}.jpg`);  
+// import accumulation from '../../../../../public/pink-accumulation.svg';
+// import LikeButton from '../../../../../public/like.svg'
+import { type CommentData } from './ComponentData';
+
+type Props = {
+  readonly comment: CommentData; // Specify the type of the 'comments' prop
+};
+
+export function Comment({ comment }: Props) {
+  // const avt = require(`../../../../../public/avt${comment.avt}.jpg`) as string;
   return (
     <div>
       {/* comment 1 */}
@@ -13,7 +19,7 @@ export function Comment({ comment }) {
         <div className='relative flex items-center'>
           {/* avt */}
           <Image
-            src={avt}
+            src={comment.avt}
             alt={comment.username}
             height={60}
             width={60}
@@ -31,7 +37,7 @@ export function Comment({ comment }) {
               {/* confirm purchase */}
               <div className='flex items-center pl-2 text-xs text-pink-500'>
                 <Image
-                  src={accumulation}
+                  src='/pinkAccumulation.svg'
                   alt='tich hong'
                   height={20}
                   width={20}
@@ -77,7 +83,13 @@ export function Comment({ comment }) {
           {/* useful */}
           <div className='mt-4 flex items-center space-x-5 text-sm'>
             <div className='flex items-center space-x-1'>
-              <Image src={LikeButton} alt='' height={20} width={20} className='cursor-pointer' onClick={comment.likes+1}/>
+              <Image
+                src='/like.svg'
+                alt=''
+                height={20}
+                width={20}
+                className='cursor-pointer'
+              />
               <div className=' text-neutral-700 font-bold'>
                 {comment.likes} thấy hữu ích
               </div>
@@ -88,4 +100,3 @@ export function Comment({ comment }) {
     </div>
   );
 }
-

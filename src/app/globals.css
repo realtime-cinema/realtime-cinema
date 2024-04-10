@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply !drag-none;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: white !important;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  color: white !important;
+}
