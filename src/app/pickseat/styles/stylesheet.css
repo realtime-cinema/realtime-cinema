@@ -28,6 +28,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -145,29 +146,29 @@ code {
   margin-right: 5px;
 }
 
-.icon_checked > .Box {
+.icon_checked>.Box {
   background: #b11500;
 }
 
-.icon_occupied > .Box {
+.icon_occupied>.Box {
   background: #bbb;
 }
 
-.icon_unavailable > .Box {
+.icon_unavailable>.Box {
   background: #bbb;
   color: #fff;
   text-align: center;
   line-height: 18px;
 }
 
-.icon-zone-standard > .Box {
+.icon-zone-standard>.Box {
   border: 1px solid #01c73c;
 }
 
-.icon-zone-vip > .Box {
+.icon-zone-vip>.Box {
   border: 1px solid #f71708;
 }
 
-.icon-zone-sw > .Box {
+.icon-zone-sw>.Box {
   background: #ff62b0;
 }
