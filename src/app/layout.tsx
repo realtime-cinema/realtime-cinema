@@ -1,9 +1,11 @@
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
+import { Footer } from './components/footer';
+import { Header } from './components/header';
 
-import "./globals.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import './globals.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import { TanstackProvider } from '@/tanstack-query/tanstack-provider';
 
 export default function RootLayout({
   children,
@@ -11,13 +13,15 @@ export default function RootLayout({
   readonly children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
         <title>Realtime cinema</title>
       </head>
-      <body className="w-full h-full m-0 p-0 flex flex-col min-h-[100vh]">
+      <body className='w-full h-full m-0 p-0 flex flex-col min-h-[100vh]'>
         <Header />
-        <div className="grow">{children}</div>
+        <TanstackProvider>
+          <div className='grow'>{children}</div>
+        </TanstackProvider>
         <Footer />
       </body>
     </html>

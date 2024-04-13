@@ -2,34 +2,46 @@ import Image from 'next/image';
 
 import { Chair } from './Chair';
 
-export function Test() {
+export function PickSeat() {
   const Ghe = () => {
     const chairs = [];
     for (let i = 0; i < 14; i++) {
       for (let j = 0; j < 25; j++) {
         if (i < 4) chairs.push(<Chair key={i} color='grey border-[green]' />);
-        else if (i < 13) chairs.push(<Chair key={i} color='red border-[red]' />);
+        else if (i < 13)
+          chairs.push(<Chair key={i} color='red border-[red]' />);
         else chairs.push(<Chair key={i} color='pink bg-[#FF62B0]' />);
       }
     }
+
     return chairs;
   };
 
+  const width = 20;
+
   return (
     <div className='Main max-w-[80%] mx-auto border-[2px] border-solid border-[#d4d3c9]'>
-      <div className='Booking text-center uppercase text-[18px] bg-[#231d1c]
+      <div
+        className='Booking text-center uppercase text-[18px] bg-[#231d1c]
        text-[white] font-[600] leading-[32px]'
-      >Booking Online
+      >
+        Booking Online
       </div>
 
-      <div className='top_content w-full bg-[#fff1ce] text-[14px] leading-[18px]
+      <div
+        className='top_content w-full bg-[#fff1ce] text-[14px] leading-[18px]
       text-[#222] p-[10px] border-b-[2px] border-b-[#d4d3c9] border-b-[solid]
-      mb-[20px] text font-bold' >
+      mb-[20px] text font-bold'
+      >
         CGV Hùng Vương Plaza | Cinema 6 | Số ghế (260/262) <br />
         02/04/2024 11:00 ~ 02/04/2024 13:20
       </div>
-      <div className='Nguoi_ghe text-center w-full bg-[#bcbdc0] text-[16px]
-      leading-[32px] border-t-[2px] mb-[12px] text font-bold '>Người / Ghế</div>
+      <div
+        className='Nguoi_ghe text-center w-full bg-[#bcbdc0] text-[16px]
+      leading-[32px] border-t-[2px] mb-[12px] text font-bold '
+      >
+        Người / Ghế
+      </div>
       <div className='Screen w-full'>
         <Image
           src='https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-screen.png'
@@ -39,8 +51,13 @@ export function Test() {
           className='img mx-auto mt-[20px] mb-[66px]'
         />
       </div>
-      <div className='Chairs w-[600px] grid grid-cols-20 gap-[0.3rem] justify-center m-auto'>
-        <Ghe></Ghe>
+      <div
+        className='w-[600px] grid gap-[0.3rem] justify-center m-auto'
+        style={{
+          gridTemplateColumns: `repeat(${width},minmax(0,1fr))`,
+        }}
+      >
+        <Ghe />
       </div>
       <div className='text-center mt-[40px]'>
         <div className='Icons inline-block text-left mr-[35px]'>
@@ -53,7 +70,9 @@ export function Test() {
             Đã chọn
           </div>
           <div className='icon_unavailable'>
-            <div className='Box w-[18px] h-[18px] bg-[#bbb] inline-block mr-[5px] text-center leading-[18px]'>X</div>
+            <div className='Box w-[18px] h-[18px] bg-[#bbb] inline-block mr-[5px] text-center leading-[18px]'>
+              X
+            </div>
             Không thể chọn
           </div>
         </div>

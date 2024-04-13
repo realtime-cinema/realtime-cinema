@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Ticket } from 'lucide-react';
 
-import { type PosterData } from './ComponentData';
+import type { PosterData } from './ComponentData';
 
 type Props = {
   readonly poster: PosterData;
@@ -118,6 +119,7 @@ export function Poster({ poster }: Props) {
                     href={poster.trailerLink}
                   >
                     <div className='h-6 w-6 rounded-full border-2 border-pink-600 text-white/80'>
+                      {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
                       <svg
                         viewBox='0 0 48 48'
                         xmlns='http://www.w3.org/2000/svg'
@@ -153,6 +155,14 @@ export function Poster({ poster }: Props) {
                       </svg>
                     </div>
                     <span className='text-white'>Xem review</span>
+                  </Link>
+                  <Link
+                    target='_blank'
+                    className='tracking-click-view-review tracking-focus flex items-center space-x-1.5 py-2 text-sm hover:underline'
+                    href={`/pickseat/${poster.filmID}`}
+                  >
+                    <Ticket className='h-6 w-6 text-white/85' />
+                    <span className='text-white'>Đặt vé</span>
                   </Link>
                 </div>
               </div>

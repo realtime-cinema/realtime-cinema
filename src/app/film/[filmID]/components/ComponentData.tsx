@@ -1,5 +1,3 @@
-import exp from 'constants';
-
 export type CommentData = {
   username: string;
   avt: string;
@@ -62,6 +60,7 @@ export const Comments: CommentData[] = [
 ];
 
 export type PosterData = {
+  filmID: string;
   age: number;
   posterFilm: string;
   name: string;
@@ -79,6 +78,7 @@ export type PosterData = {
 };
 
 export const poster: PosterData = {
+  filmID: '1',
   age: 18,
   posterFilm: 'poster.jpg',
   name: 'Mai',
