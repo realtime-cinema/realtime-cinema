@@ -1,7 +1,7 @@
 'use client';
 
 import { posterfilms } from './components/ComponentData';
-import FilmDangChieu from './components/filmDangChieu';
+import { FilmDangChieu } from './components/filmDangChieu';
 
 export default function FilmPageList() {
   return (

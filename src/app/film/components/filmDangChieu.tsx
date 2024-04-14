@@ -26,9 +26,9 @@ import {
 } from '@/components/ui/carousel';
 
 import type { PosterData } from './ComponentData';
-import PosterFilm from './PosterFilm';
+import { PosterFilm } from './PosterFilm';
 
-export default function FilmDangChieu({
+export function FilmDangChieu({
   posterFilms,
   className,
 }: {
@@ -48,7 +48,7 @@ export default function FilmDangChieu({
             <div className='p-1'>
               <Card>
                 <CardContent className='flex aspect-square items-center justify-center p-6'>
-                  <PosterFilm posterfilm={film} />
+                  <PosterFilm data={film} />
                 </CardContent>
               </Card>
             </div>

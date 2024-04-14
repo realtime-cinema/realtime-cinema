@@ -1,4 +1,11 @@
+'use client';
+
+import { useEffect } from 'react';
 import Image from 'next/image';
+
+import { socket } from '@/lib/socket.io-client';
+import { usePickSeat } from '@/hooks/usePickSeat';
+import { Button } from '@/components/ui/button';
 
 import { Chair } from './Chair';
 
@@ -7,15 +14,80 @@ export function PickSeat() {
     const chairs = [];
     for (let i = 0; i < 14; i++) {
       for (let j = 0; j < 25; j++) {
-        if (i < 4) chairs.push(<Chair key={i} color='grey border-[green]' />);
+        if (i < 4)
+          chairs.push(
+            <Chair
+              key={`${i}-${j}`}
+              data={{
+                x: i,
+                y: j,
+              }}
+              color='grey border-[green]'
+            />
+          );
         else if (i < 13)
-          chairs.push(<Chair key={i} color='red border-[red]' />);
-        else chairs.push(<Chair key={i} color='pink bg-[#FF62B0]' />);
+          chairs.push(
+            <Chair
+              key={`${i}-${j}`}
+              data={{
+                x: i,
+                y: j,
+              }}
+              color='red border-[red]'
+            />
+          );
+        else
+          chairs.push(
+            <Chair
+              key={`${i}-${j}`}
+              data={{
+                x: i,
+                y: j,
+              }}
+              color='pink bg-[#FF62B0]'
+            />
+          );
       }
     }
 
     return chairs;
   };
+
+  const toggleSeat = usePickSeat((state) => state.toggleSeat);
+  const clear = usePickSeat((state) => state.clear);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    socket.emit('refresh');
+    function onConnect() {
+      // setIsConnected(true);
+    }
+
+    function onDisconnect() {
+      // setIsConnected(false);
+    }
+
+    function onFooEvent(
+      seats: Array<{ performId: string; x: number; y: number }>
+    ) {
+      clear();
+      console.log(seats);
+      for (const data of seats) {
+        if (data.performID !== '223be080-6ae8-4b5e-b43d-511ed727a91a') continue;
+        toggleSeat([data.x, data.y], true);
+      }
+    }
+
+    socket.on('connect', onConnect);
+    socket.on('disconnect', onDisconnect);
+    socket.on('pick-seat', onFooEvent);
+
+    return () => {
+      socket.off('connect', onConnect);
+      socket.off('disconnect', onDisconnect);
+      socket.off('pick-seat', onFooEvent);
+    };
+  }, []);
 
   const width = 20;
 
@@ -90,6 +162,9 @@ export function PickSeat() {
             Sweetbox
           </div>
         </div>
+      </div>
+      <div className='w-full flex mb-5'>
+        <Button className='mt-[40px] w-[200px] mx-auto'>Đặt vé</Button>
       </div>
     </div>
   );

@@ -89,11 +89,9 @@ export function NavBarLink({
 }) {
   return (
     <NavigationMenuItem>
-      <Link passHref href={href}>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          {children}
-        </NavigationMenuLink>
-      </Link>
+      <NavigationMenuLink href={href} className={navigationMenuTriggerStyle()}>
+        {children}
+      </NavigationMenuLink>
     </NavigationMenuItem>
   );
 }

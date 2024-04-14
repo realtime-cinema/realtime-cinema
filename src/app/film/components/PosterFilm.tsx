@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import type { FilmDetail } from '@/tanstack-query/film/film.type';
 
-import type { FilmDetail } from '@/types/core';
-
-function PosterFilm({ data }: { readonly data: FilmDetail }) {
+export function PosterFilm({ data }: { readonly data: FilmDetail }) {
   let backgroundColor = '';
   if (data.restrict_age < 16) {
     backgroundColor = 'bg-green-600';
@@ -44,7 +44,7 @@ function PosterFilm({ data }: { readonly data: FilmDetail }) {
             </svg>
           </div>
           <div className=' background-gray-100 border-blend relative z-10 overflow-hidden rounded drag-none'>
-            <a href={`/film/${data.id}`}>
+            <Link href={`/film/${data.id}`}>
               <div className=' overlay absolute inset-0 z-20 bg-transparent px-2 py-2 drag-none'>
                 <div className=' flex flex-row flex-nowrap space-x-2 drag-none'>
                   <div
@@ -54,11 +54,13 @@ function PosterFilm({ data }: { readonly data: FilmDetail }) {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
             <div className=' mx-auto flex bg-gray-900 w-[220px]'>
               <div className='aspect-w-7 aspect-h-10 w-full scale-100 transition-transform duration-300 group-hover:scale-105'>
                 <Image
-                  src={data.picture_url}
+                  src={
+                    data?.picture_url ?? '/films/placeholder-picture-url.png'
+                  }
                   width={250}
                   height={300}
                   alt={data.description}
@@ -69,11 +71,11 @@ function PosterFilm({ data }: { readonly data: FilmDetail }) {
             </div>
           </div>
           <div className=' absolute -bottom-4 left-0 z-10 text-4xl font-bold text-white text-opacity-90 drop-shadow md:text-5xl'>
-            {data.id}
+            {data.title}
           </div>
         </div>
         <div className=' mt-2'>
-          <a className=' group' href={data.trailer_url}>
+          <Link className=' group' href={data?.trailer_url ?? '#'}>
             <div className=' truncate font-semibold leading-tight sm:text-md text-white group-hover:text-pink-400 flex justify-start mt-3'>
               {data.title}
             </div>
@@ -85,7 +87,7 @@ function PosterFilm({ data }: { readonly data: FilmDetail }) {
                 {tag.name}
               </div>
             ))}
-          </a>
+          </Link>
         </div>
         <div className=' mt-1 flex items-center text-tiny text-gray-200'>
           <svg
@@ -103,5 +105,3 @@ function PosterFilm({ data }: { readonly data: FilmDetail }) {
     </div>
   );
 }
-
-export default PosterFilm;

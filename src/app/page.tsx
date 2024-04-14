@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { filmInstance } from '@/tanstack-query/film/film.class';
+import type { FilmDetail } from '@/tanstack-query/film/film.type';
 import { CheckCircle } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -17,11 +19,20 @@ import {
 } from '@/components/ui/carousel';
 
 import { Navbar, NavbarItem, NavBarLink } from './components/navbar';
-import PosterFilm from './film/components/PosterFilm';
+import { PosterFilm } from './film/components/PosterFilm';
 
 export default function Home() {
-  const { data: films = [] } = filmInstance.useGetAll();
-  console.log(films);
+  const [films, setFilms] = useState<FilmDetail[]>([]);
+  useEffect(() => {
+    filmInstance
+      .getAll()
+      .then((data) => {
+        setFilms(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  // console.log(films);
   return (
     <div className='flex flex-col'>
       <DatMuaVeXemPhim />
@@ -80,18 +91,13 @@ function PhimDangChieu({
   films,
   className,
 }: {
-  readonly films: Film[];
+  readonly films: FilmDetail[];
   readonly className?: string;
 }) {
   return (
-    <div className='flex flex-col gap-y-6 py-6'>
-      <div className='flex flex-row items-center justify-between px-6'>
+    <div className='flex flex-col gap-y-6 py-6 bg-black'>
+      <div className='flex flex-col items-center justify-between px-6 gap-y-3'>
         <h1 className='text-2xl font-bold'>Phim đang chiếu</h1>
-        <Link href='/phim-dang-chieu'>
-          <Link className='text-sm text-gray-500' href='#'>
-            Xem thêm
-          </Link>
-        </Link>
         <Carousel
           className={cn('w-full max-w-6xl', className)}
           opts={{ loop: false, dragFree: true }}

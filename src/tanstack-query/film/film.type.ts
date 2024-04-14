@@ -9,8 +9,10 @@ export type FilmDetail = {
   duration: string;
   release_date: string;
   restrict_age: number;
-  picture_url: string;
-  trailer_url: string;
+  // picture_url: string;
+  picture_url?: string;
+  trailer_url?: string;
+  // trailer_url: string;
   description?: string;
 };
 

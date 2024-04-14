@@ -11,7 +11,6 @@ export default function FilmPage({
 }) {
   return (
     <div>
-      <h1>Film Page</h1>
       <Poster poster={poster} />
       <UserComment comments={Comments} />
     </div>
