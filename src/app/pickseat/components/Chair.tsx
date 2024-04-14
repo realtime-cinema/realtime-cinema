@@ -17,16 +17,16 @@ export function Chair({
     y: number;
   };
 }) {
+  const toggleSeat = usePickSeat((state) => state.toggleSeat);
   const perform = '223be080-6ae8-4b5e-b43d-511ed727a91a';
-  const isSelected = usePickSeat((state) =>
-    state.seats.some((s) => s[0] === data.x && s[1] === data.y)
-  );
+  const isSelected = usePickSeat((state) => state.isSelected(data));
   const handleClick = () => {
     // socket.emit('refresh');
     // return;
 
     if (isSelected) {
       // request nhả ghế
+      toggleSeat(data, false);
       myfetch(`pick-seat/${perform}`, {
         method: 'DELETE',
         body: JSON.stringify([
@@ -38,6 +38,7 @@ export function Chair({
       }).catch(console.error);
     } else {
       // request chọn ghế
+      toggleSeat(data, true);
       myfetch(`pick-seat/${perform}`, {
         method: 'POST',
         body: JSON.stringify([

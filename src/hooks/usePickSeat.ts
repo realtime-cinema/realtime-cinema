@@ -1,47 +1,49 @@
 import { create } from 'zustand';
 
 type PickSeatState = {
-  seats: Array<[number, number]>;
-  toggleSeat(seat: [number, number], isPicked?: boolean): void;
+  seat: Record<string, boolean>;
+  toggleSeat(
+    seat: {
+      x: number;
+      y: number;
+    },
+    isPicked?: boolean
+  ): void;
   clear(): void;
+  isSelected(seat: { x: number; y: number }): boolean;
 };
 
 export const usePickSeat = create<PickSeatState>((set) => ({
-  seats: [],
-  toggleSeat(seat, isPicked) {
+  seat: {},
+  toggleSeat(seat, isPicked = false) {
     set((state) => {
       if (isPicked !== undefined) {
-        if (isPicked) {
-          return {
-            seats: [...state.seats, seat],
-          };
-        }
-
+        state.seat[hash(seat)] = isPicked;
         return {
-          seats: state.seats.filter(
-            (s) => s[0] !== seat[0] || s[1] !== seat[1]
-          ),
+          seat: { ...state.seat },
         };
       }
 
-      const found = state.seats.find(
-        (s) => s[0] === seat[0] && s[1] === seat[1]
-      );
-
-      if (found) {
-        return {
-          seats: state.seats.filter(
-            (s) => s[0] !== seat[0] || s[1] !== seat[1]
-          ),
-        };
+      if (state.seat[hash(seat)]) {
+        delete state.seat[hash(seat)];
+      } else {
+        state.seat[hash(seat)] = true;
       }
 
       return {
-        seats: [...state.seats, seat],
+        seat: { ...state.seat },
       };
     });
   },
+
   clear() {
-    set({ seats: [] });
+    set({ seat: {} });
+  },
+  isSelected(seat) {
+    return Boolean(this.seat[hash(seat)]);
   },
 }));
+
+function hash(seat: { x: number; y: number }) {
+  return `${seat.x}#${seat.y}`;
+}
