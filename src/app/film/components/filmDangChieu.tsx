@@ -6,6 +6,7 @@ import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { type FilmDetail } from '@/tanstack-query/film/film.type';
 import Slider from 'react-slick';
 
 import { cn } from '@/lib/utils';
@@ -48,7 +49,7 @@ export function FilmDangChieu({
             <div className='p-1'>
               <Card>
                 <CardContent className='flex aspect-square items-center justify-center p-6'>
-                  <PosterFilm data={film} />
+                  <PosterFilm data={film as unknown as FilmDetail} />
                 </CardContent>
               </Card>
             </div>

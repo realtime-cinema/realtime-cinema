@@ -25,6 +25,7 @@ export const usePickSeat = create<PickSeatState>((set) => ({
       }
 
       if (state.seat[hash(seat)]) {
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
         delete state.seat[hash(seat)];
       } else {
         state.seat[hash(seat)] = true;

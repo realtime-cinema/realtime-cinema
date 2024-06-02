@@ -63,7 +63,7 @@ export function PosterFilm({ data }: { readonly data: FilmDetail }) {
                   }
                   width={250}
                   height={300}
-                  alt={data.description}
+                  alt={data.description ?? 'film'}
                   className='h-[300px] w-[250px] object-cover object-center select-none'
                   loading='lazy'
                 />
