@@ -53,6 +53,9 @@ To run the Realtime Cinema project locally, follow these steps:
    http://localhost:5173
    ```
 
+## Demo
+![demo](https://s3.ezgif.com/tmp/ezgif-3-542f1f5fcf.gif)
+
 ## Contributing
 
 Contributions to the Realtime Cinema project are welcome. If you find any issues or have suggestions for improvements, please feel free to create a new issue or submit a pull request.
