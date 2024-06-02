@@ -9,9 +9,9 @@ Realtime Cinema is a web application that allows users to book tickets for a cin
 
 - Real-time ticket booking: Users can book tickets for a movie in real-time, with the available seats updating instantly.
 - Seat selection: Users can select the seats they want to book.
-~~- User authentication: Users can create an account and log in to the application.~~
-~~- Order history: Users can view their past ticket orders.~~
-~~- Admin panel: Administrators can manage the movies, showtimes, and ticket sales.~~
+- ~~User authentication: Users can create an account and log in to the application.~~
+- ~~Order history: Users can view their past ticket orders.~~
+- ~~Admin panel: Administrators can manage the movies, showtimes, and ticket sales.~~
 
 ## Technologies Used
 
