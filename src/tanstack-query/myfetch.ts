@@ -13,6 +13,6 @@ export async function myfetch<T>(endpoint: string, ...args: any[]) {
     },
     ...args[0],
   });
-  const { data } = await res.json();
+  const data = await res.json();
   return data as T;
 }
