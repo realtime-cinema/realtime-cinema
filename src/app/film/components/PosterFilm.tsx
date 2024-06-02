@@ -3,7 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { FilmDetail } from '@/tanstack-query/film/film.type';
 
-export function PosterFilm({ data }: { readonly data: FilmDetail }) {
+export function PosterFilm({
+  data,
+  index,
+}: {
+  readonly data: FilmDetail;
+  readonly index: number;
+}) {
   let backgroundColor = '';
   if (data.restrict_age < 16) {
     backgroundColor = 'bg-green-600';
@@ -70,8 +76,11 @@ export function PosterFilm({ data }: { readonly data: FilmDetail }) {
               </div>
             </div>
           </div>
-          <div className=' absolute -bottom-4 left-0 z-10 text-4xl font-bold text-white text-opacity-90 drop-shadow md:text-5xl'>
-            {data.title}
+          <div
+            className=' absolute -bottom-4 left-0 z-10 text-4xl font-bold text-white md:text-5xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
+'
+          >
+            {index}
           </div>
         </div>
         <div className=' mt-2'>

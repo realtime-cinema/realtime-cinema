@@ -6,5 +6,3 @@ import type { FilmDetail } from './film.type';
 export class FilmClass extends QueryClass<FilmDetail> {
   endpoint = 'films';
 }
-
-export const filmInstance = new FilmClass();

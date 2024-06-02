@@ -6,6 +6,12 @@ import { useQuery } from '@tanstack/react-query';
 import { myfetch } from './myfetch';
 
 export abstract class QueryClass<Item> {
+  static instance: QueryClass<any>;
+  static getInstance<T extends QueryClass<any>>(this: new () => T) {
+    QueryClass.instance ||= new this();
+    return QueryClass.instance as T;
+  }
+
   abstract endpoint: string;
 
   async getAll() {

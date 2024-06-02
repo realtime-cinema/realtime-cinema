@@ -1,22 +1,16 @@
-'use client';
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 
-import type React from 'react';
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-  NavigationMenuViewport,
-} from '@/components/ui/navigation-menu';
+} from "@/components/ui/navigation-menu";
 
 export function Navbar({
   className,
@@ -26,14 +20,14 @@ export function Navbar({
   readonly children?: React.ReactNode;
 }) {
   return (
-    <div className='border-b-[2px] shadow-sm flex flex-row justify-center mx-auto px-16 sm:px-6 lg:px-[20%] py-2'>
+    <div className="border-b-[2px] shadow-sm flex flex-row justify-center mx-auto px-16 sm:px-6 lg:px-[450px] py-2 sticky top-0 bg-white w-full z-50">
       {/* <div className=''>
         <Image src='/logo.jpg' alt='logo' width={20} height={20} />
         <div className='border-1 w-[1px]' />
         <div>Đặt vé xem phim</div>
       </div> */}
-      <div className='grow' />
-      <div className='flex flex-row'>
+      <div className="grow" />
+      <div className="flex flex-row">
         {/* <div>Lịch chiếu</div>
         <div>Rạp chiếu</div>
         <div>Phim chiếu</div>
@@ -106,20 +100,21 @@ export function NavbarItem({
   readonly title: string;
   readonly className?: string;
 }) {
-  const ref = useRef<HTMLButtonElement>(null);
-  const [offsetLeft, setOffsetLeft] = useState(0);
-  useEffect(() => {
-    setInterval(() => {
-      if (ref.current) {
-        setOffsetLeft(ref.current.offsetLeft);
-      }
-    });
-  });
+  // const ref = useRef<HTMLButtonElement>(null);
+  // const [offsetLeft, setOffsetLeft] = useState(0);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     if (ref.current) {
+  //       setOffsetLeft(ref.current.offsetLeft);
+  //     }
+  //   });
+  // });
+  return "";
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger ref={ref}>{title}</NavigationMenuTrigger>
       <NavigationMenuContent
-        className={cn('p-4 min-w-[540px]', className)}
+        className={cn("p-4 min-w-[540px]", className)}
         // biome-ignore lint/style/useTemplate: <explanation>
         // style={{ left: offsetLeft + 'px' }}
       >

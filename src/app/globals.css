@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply font-sans antialiased text-[rgb(82_82_82/var(--tw-text-opacity))]
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -48,7 +48,7 @@ export function FilmDangChieu({
             <div className='p-1'>
               <Card>
                 <CardContent className='flex aspect-square items-center justify-center p-6'>
-                  <PosterFilm data={film} />
+                  <PosterFilm index={index} data={film} />
                 </CardContent>
               </Card>
             </div>
