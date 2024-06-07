@@ -54,7 +54,7 @@ To run the Realtime Cinema project locally, follow these steps:
    ```
 
 ## Demo
-![demo](https://s3.ezgif.com/tmp/ezgif-3-542f1f5fcf.gif)
+![demo](https://github.com/realtime-cinema/realtime-cinema/blob/main/realtimecinema.gif?raw=true)
 
 ## Contributing
 
