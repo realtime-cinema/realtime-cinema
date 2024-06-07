@@ -1,103 +1,119 @@
-export type PosterData = {
-  id: number;
-  age: number;
-  imgPoster: string;
-  filmName: string;
-  filmLink: string;
-  filmGenre: string;
-  rating: string;
-};
+import { type FilmDetail } from '@/tanstack-query/film/film.type';
 
-export const posterfilms: PosterData[] = [
+// rebuild object above fit to FilmDetail
+export const posterfilms: FilmDetail[] = [
   {
-    id: 1,
-    age: 18,
-    imgPoster: '/avt1.jpg',
-    filmName: 'Điềm Báo Của Quỷ',
-    filmLink: 'https://www.youtube.com/watch?v=bNp9pn0ni3I',
-    filmGenre: 'Kinh Dị',
-    rating: '10.0',
-  },
-
-  {
-    id: 2,
-    age: 16,
-    imgPoster: '/avt2.jpg',
-    filmName: 'Những Kẻ Trở Lại',
-    filmLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    filmGenre: 'Hành Động',
-    rating: '8.5',
-  },
-  {
-    id: 3,
-    age: 16,
-    imgPoster: '/avt3.jpg',
-    filmName: 'Cuộc Phiêu Lưu Của Lý Tiểu Long',
-    filmLink: 'https://www.youtube.com/watch?v=J7qyfNhjGuw',
-    filmGenre: 'Phiêu Lưu',
-    rating: '9.2',
+    id: '1',
+    title: 'Điềm Báo Của Quỷ',
+    director: 'Nguyễn Văn A',
+    country: 'Việt Nam',
+    tags: [
+      {
+        id: '1',
+        name: 'Kinh Dị',
+      },
+    ],
+    duration: '2h 30m',
+    release_date: '2022-04-02',
+    restrict_age: 18,
+    picture_url: '/avt1.jpg',
+    trailer_url: 'https://www.youtube.com/watch?v=bNp9pn0ni3I',
+    description:
+      'Điềm Báo Của Quỷ là một bộ phim kinh dị Việt Nam do Nguyễn Văn A làm đạo diễn. Phim được công chiếu vào ngày 2 tháng 4 năm 2022.',
   },
   {
-    id: 4,
-    age: 13,
-    imgPoster: '/avt4.jpg',
-    filmName: 'Bí Mật Của Bóng Đêm',
-    filmLink: 'https://www.youtube.com/watch?v=5xLbL7Zo3_A',
-    filmGenre: 'Bí Ẩn',
-    rating: '7.8',
+    id: '2',
+    title: 'Những Kẻ Trở Lại',
+    director: 'Nguyễn Văn B',
+    country: 'Việt Nam',
+    tags: [
+      {
+        id: '2',
+        name: 'Hành Động',
+      },
+    ],
+    duration: '2h 30m',
+    release_date: '2022-04-02',
+    restrict_age: 16,
+    picture_url: '/avt2.jpg',
+    trailer_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    description:
+      'Những Kẻ Trở Lại là một bộ phim hành động Việt Nam do Nguyễn Văn B làm đạo diễn. Phim được công chiếu vào ngày 2 tháng 4 năm 2022.',
   },
   {
-    id: 5,
-    age: 13,
-    imgPoster: '/avt5.jpg',
-    filmName: 'Sự Im Lặng Của Lâm Gia Đống',
-    filmLink: 'https://www.youtube.com/watch?v=u9hN6tfdQ2A',
-    filmGenre: 'Tâm Lý',
-    rating: '8.9',
+    id: '3',
+    title: 'Cuộc Phiêu Lưu Của Lý Tiểu Long',
+    director: 'Nguyễn Văn C',
+    country: 'Việt Nam',
+    tags: [
+      {
+        id: '3',
+        name: 'Phiêu Lưu',
+      },
+    ],
+    duration: '2 h 30m',
+    release_date: '2022-04-02',
+    restrict_age: 16,
+    picture_url: '/avt3.jpg',
+    trailer_url: 'https://www.youtube.com/watch?v=J7qyfNhjGuw',
+    description:
+      'Cuộc Phiêu Lưu Của Lý Tiểu Long là một bộ phim phiêu lưu Việt Nam do Nguyễn Văn C làm đạo diễn. Phim được công chiếu vào ngày 2 tháng 4 năm 2022.',
   },
   {
-    id: 6,
-    age: 13,
-    imgPoster: '/avt6.jpg',
-    filmName: 'Những Kẻ Khờ Mộng',
-    filmLink: 'https://www.youtube.com/watch?v=9RC8SwvJIxM',
-    filmGenre: 'Hài Hước',
-    rating: '7.5',
+    id: '4',
+    title: 'Bí Mật Của Bóng Đêm',
+    director: 'Nguyễn Văn D',
+    country: 'Việt Nam',
+    tags: [
+      {
+        id: '4',
+        name: 'Bí Ẩn',
+      },
+    ],
+    duration: '2 h 30m',
+    release_date: '2022-04-02',
+    restrict_age: 13,
+    picture_url: '/avt4.jpg',
+    trailer_url: 'https://www.youtube.com/watch?v=5xLbL7Zo3_A',
+    description:
+      'Bí Mật Của Bóng Đêm là một bộ phim bí ẩn Việt Nam do Nguyễn Văn D làm đạo diễn. Phim được công chiếu vào ngày 2 tháng 4 năm 2022.',
   },
   {
-    id: 7,
-    age: 18,
-    imgPoster: '/avt7.jpg',
-    filmName: 'Đêm Kinh Hoàng',
-    filmLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    filmGenre: 'Kinh Dị',
-    rating: '9.0',
+    id: '5',
+    title: 'Sự Im Lặng Của Lâm Gia Đống',
+    director: 'Nguyễn Văn E',
+    country: 'Việt Nam',
+    tags: [
+      {
+        id: '5',
+        name: 'Tâm Lý',
+      },
+    ],
+    duration: '2 h 30m',
+    release_date: '2022-04-02',
+    restrict_age: 13,
+    picture_url: '/avt5.jpg',
+    trailer_url: 'https://www.youtube.com/watch?v=u9hN6tfdQ2A',
+    description:
+      'Sự Im Lặng Của Lâm Gia Đống là một bộ phim tâm lý Việt Nam do Nguyễn Văn E làm đạo diễn. Phim được công chiếu vào ngày 2 tháng 4 năm 2022.',
   },
   {
-    id: 8,
-    age: 16,
-    imgPoster: '/avt8.jpg',
-    filmName: 'Sự Trả Thù Của Quỷ',
-    filmLink: 'https://www.youtube.com/watch?v=J7qyfNhjGuw',
-    filmGenre: 'Hành Động',
-    rating: '8.3',
-  },
-  {
-    id: 9,
-    age: 16,
-    imgPoster: '/avt9.jpg',
-    filmName: 'Chạy Trốn Khỏi Thế Giới Quái Vật',
-    filmLink: 'https://www.youtube.com/watch?v=5xLbL7Zo3_A',
-    filmGenre: 'Phiêu Lưu',
-    rating: '9.5',
-  },
-  {
-    id: 10,
-    age: 13,
-    imgPoster: '/avt10.jpg',
-    filmName: 'Bí Mật Kinh Hoàng',
-    filmLink: 'https://www.youtube.com/watch?v=u9hN6tfdQ2A',
-    filmGenre: 'Bí Ẩn',
-    rating: '8.7',
+    id: '6',
+    title: 'Những Kẻ Khờ Mộng',
+    director: 'Nguyễn Văn F',
+    country: 'Việt Nam',
+    tags: [
+      {
+        id: '6',
+        name: 'Hài Hước',
+      },
+    ],
+    duration: '2 h 30m',
+    release_date: '2022-04-02',
+    restrict_age: 13,
+    picture_url: '/avt6.jpg',
+    trailer_url: 'https://www.youtube.com/watch?v=9RC8SwvJIxM',
+    description:
+      'Những Kẻ Khờ Mộng là một bộ phim hài hước Việt Nam do Nguyễn Văn F làm đạo diễn. Phim được công chiếu vào ngày 2 tháng 4 năm 2022.',
   },
 ];

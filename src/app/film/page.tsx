@@ -7,7 +7,7 @@ export default function FilmPageList() {
   return (
     <div className='flex flex-col'>
       <h1>Film Page List</h1>
-      <FilmDangChieu className='mx-auto' posterFilms={posterfilms} />
+      <FilmDangChieu className='mx-auto' films={posterfilms} />
     </div>
   );
 }

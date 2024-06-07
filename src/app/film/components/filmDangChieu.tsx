@@ -1,23 +1,14 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { type FilmDetail } from '@/tanstack-query/film/film.type';
-import Slider from 'react-slick';
 
 import { cn } from '@/lib/utils';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
@@ -26,17 +17,16 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 
-import type { PosterData } from './ComponentData';
 import { PosterFilm } from './PosterFilm';
 
 export function FilmDangChieu({
-  posterFilms,
+  films,
   className,
 }: {
-  readonly posterFilms: PosterData[];
+  readonly films: FilmDetail[];
   readonly className?: string;
 }) {
-  const posterFilms2 = posterFilms.flatMap((a) => [a, a]);
+  const posterFilms2 = films.flatMap((a) => [a, a]);
 
   return (
     <Carousel
@@ -49,7 +39,7 @@ export function FilmDangChieu({
             <div className='p-1'>
               <Card>
                 <CardContent className='flex aspect-square items-center justify-center p-6'>
-                  <PosterFilm data={film as unknown as FilmDetail} />
+                  <PosterFilm data={film} />
                 </CardContent>
               </Card>
             </div>
