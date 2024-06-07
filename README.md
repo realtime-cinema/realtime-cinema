@@ -50,7 +50,7 @@ To run the Realtime Cinema project locally, follow these steps:
 5. Open the application in your browser:
 
    ```shell
-   http://localhost:5173
+   http://localhost:5170
    ```
 
 ## Demo
